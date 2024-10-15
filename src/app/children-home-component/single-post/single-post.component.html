@@ -1,0 +1,13 @@
+<div class="card" *ngIf="post">
+  <h2 class="card-body">{{ post.title }}</h2>
+
+  <ul class="">
+    <li class="list-group-item" *ngFor="let tag of post.tags">
+      {{ tag }}
+    </li>
+    <button class="p-1 btn btn-info" [routerLink]="['posts-details', post.id]">
+      DETTAGLI
+    </button>
+  </ul>
+  <ng-content select="form"> </ng-content>
+</div>

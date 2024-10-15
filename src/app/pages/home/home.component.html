@@ -1,0 +1,49 @@
+<div class="conteiner">
+  <div class="row">
+    <div class="col text-center" *ngIf="featuredPost">
+      <app-single-post [post]="featuredPost"></app-single-post>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3 text-center" *ngIf="posts.length > 0">
+  <div class="row">
+    <div class="col" *ngFor="let post of posts">
+      <app-single-post [post]="post"></app-single-post>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3 text-center">
+  <h2 class="text-center my-5">TUTTI I POST</h2>
+  <div class="row">
+    <div class="col" *ngFor="let post of postsOrd">
+      <app-single-post [post]="post">
+        <form>
+          <label for="post-title-{{ post.id }}">Title:</label>
+          <input
+            type="text"
+            [(ngModel)]="post.title"
+            name="title"
+            id="post-title-{{ post.id }}"
+          />
+
+          <label for="post-body-{{ post.id }}">Body:</label>
+          <textarea
+            [(ngModel)]="post.body"
+            name="body"
+            id="post-body-{{ post.id }}"
+          ></textarea>
+
+          <label for="post-active-check-box-{{ post.id }}">Active</label>
+          <input
+            [(ngModel)]="post.active"
+            type="checkbox"
+            name="active"
+            id="post-active-check-box-{{ post.id }}"
+          />
+        </form>
+      </app-single-post>
+    </div>
+  </div>
+</div>
