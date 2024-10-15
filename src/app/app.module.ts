@@ -11,6 +11,7 @@ import { NavBarComponent } from './main-components/nav-bar/nav-bar.component';
 import { SinglePostComponent } from './children-home-component/single-post/single-post.component';
 import { FormsModule } from '@angular/forms';
 import { NgContentComponent } from './content-single-page/ng-content/ng-content.component';
+import { RandomBgDirective } from './directives/random-bg.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgContentComponent } from './content-single-page/ng-content/ng-content.
     NavBarComponent,
     SinglePostComponent,
     NgContentComponent,
+    RandomBgDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

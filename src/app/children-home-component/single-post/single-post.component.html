@@ -1,11 +1,18 @@
-<div class="card" *ngIf="post">
+<div
+  class="card h-100 py-3 text-center rounded-5"
+  [ngClass]="{ 'border-info': isActive }"
+  *ngIf="post"
+>
   <h2 class="card-body">{{ post.title }}</h2>
 
-  <ul class="">
-    <li class="list-group-item" *ngFor="let tag of post.tags">
-      {{ tag }}
+  <ul class="px-1">
+    <li class="list-group-item py-1" *ngFor="let tag of post.tags" appRandomBg>
+      {{ tag | uppercase }}
     </li>
-    <button class="p-1 btn btn-info" [routerLink]="['posts-details', post.id]">
+    <button
+      class="p-1 btn btn-info mt-2"
+      [routerLink]="['/posts-details', post.id]"
+    >
       DETTAGLI
     </button>
   </ul>

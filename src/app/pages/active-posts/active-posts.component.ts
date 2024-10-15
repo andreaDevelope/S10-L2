@@ -14,5 +14,6 @@ export class ActivePostsComponent {
 
   ngOnInit() {
     this.activePost = this.postServ.getActivePost(this.posts);
+    this.postServ.setBordColor(this.activePost);
   }
 }

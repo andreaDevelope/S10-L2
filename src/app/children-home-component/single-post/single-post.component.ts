@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { iPosts } from '../../modules/i-posts';
+import { IpostServService } from '../../services/ipost-serv.service';
 
 @Component({
   selector: 'app-single-post',
@@ -8,4 +9,9 @@ import { iPosts } from '../../modules/i-posts';
 })
 export class SinglePostComponent {
   @Input() post!: iPosts;
+  isActive: boolean = false;
+  constructor(private postserv: IpostServService) {}
+  ngOnInit() {
+    this.isActive = this.postserv.isActive;
+  }
 }

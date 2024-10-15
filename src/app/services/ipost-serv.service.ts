@@ -256,6 +256,9 @@ export class IpostServService {
   // array di post attivi
   activePosts!: iPosts[];
 
+  // booleano per colorare il bordo delle card active
+  isActive: boolean = false;
+
   constructor() {}
 
   // metodo shuffle
@@ -280,5 +283,16 @@ export class IpostServService {
   getActivePost = (param: iPosts[]) => {
     this.activePosts = param.filter((post) => (post.active ? true : false));
     return this.shuffle(this.activePosts);
+  };
+
+  // metodo bordo card active
+  setBordColor = (param: iPosts[]) => {
+    this.activePosts = param.filter((post) => (post.active ? true : false));
+
+    this.activePosts.forEach((post) =>
+      post.active
+        ? (this.isActive = !this.isActive)
+        : (this.isActive = this.isActive)
+    );
   };
 }
